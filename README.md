@@ -12,51 +12,55 @@ This project demonstrates how to configure Alfresco, Share, Content App, and Key
 
 - Add following properties to the alfresco (repository) JAVA_OPTS:
 
-	`-Dauthentication.chain=identity-service1:identity-service,alfrescoNtlm1:alfrescoNtlm
+	```
+	 -Dauthentication.chain=identity-service1:identity-service,alfrescoNtlm1:alfrescoNtlm
 	 -Didentity-service.enable-basic-auth=true
 	 -Didentity-service.auth-server-url=http://keycloak:8080
 	 -Didentity-service.realm=alfresco
 	 -Didentity-service.resource=alfresco
 	 -Didentity-service.authentication.validation.failure.silent=false
 	 -Didentity-service.authentication.enabled=true
-	 `
+	 ```
 	 
 - Add following properties to the share JAVA_OPTS:
 
-	`
+	```
 	-Daims.resource=alfresco
 	-Daims.enabled=true
 	-Daims.realm=alfresco
 	-Daims.enableBasicAuth=true
 	-Daims.authServerUrl=http://keycloak:8080
-	`
+	```
 	
 - Add the following as a startup command for Keycloak:
 
-	`start --import-realm --hostname=${HOST_NAME}
+	```
+	start --import-realm --hostname=${HOST_NAME}
 	  --hostname-port=8585
 	  --http-enabled=true
 	  --hostname-strict-https=false
-	`
+	```
 	
-- Add the following variables for Keycloak (for h2):
+- Add the following environment variables for Keycloak (for h2):
 
-	`- KEYCLOAK_ADMIN=admin
+	```
+	 - KEYCLOAK_ADMIN=admin
 	 - KEYCLOAK_ADMIN_PASSWORD=admin
 	 - KC_HOSTNAME=keycloak
 	 - KC_DB=h2
-	`
+	```
 	
-- Add the following variables for Keycloak (for PostgreSQL. Make sure to keep same credentials for postgres container as well):
+- Add the following environment variables for Keycloak (for PostgreSQL. Make sure to keep same credentials for postgres container as well):
 
-	`- KEYCLOAK_ADMIN=admin
+	```
+	 - KEYCLOAK_ADMIN=admin
      - KEYCLOAK_ADMIN_PASSWORD=admin
 	 - KC_HOSTNAME=keycloak
 	 - KC_DB=postgres
 	 - KC_DB_URL=jdbc:postgresql://postgres-idp:5432/keycloak
 	 - KC_DB_USERNAME=keycloak
      - KC_DB_PASSWORD=idp@1234
-    `
+    ```
 	
 
 ### Docker Image Versions used for this project
