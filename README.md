@@ -2,7 +2,7 @@
 
 This project demonstrates how to configure Alfresco, Share, Content App, and Keycloak in a Dockerized environment. It also shows how to integrate the Share interface with Keycloak for OIDC-based authentication.
 
-## Important Configuration
+## Important Configuration (Check docker-compose for more info)
 
 - Create a local IP to HOST_NAME name mapping in in `hosts` file. e.g. 192.168.1.12 alfresco.local.com or 127.0.0.1 localhost.
 
